@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
      * Calculates the price of the order.
      */
     private int calculatePrice() {
-        int price = numberOfCoffees * 5;
-        return price;
+        return numberOfCoffees * 5;
     }
 
     public void increment(View view) {
@@ -58,15 +57,15 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given quantity value on the screen.
      */
     private void displayQuantity(int numbers) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + numbers);
+        TextView quantityTextView =  findViewById(R.id.quantity_text_view);
+        quantityTextView.setText(numbers);
     }
 
     /**
      * This method displays the given text on the screen.
      */
     private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
         orderSummaryTextView.setText(message);
     }
 }
