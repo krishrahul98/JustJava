@@ -9,4 +9,6 @@
     <string name="order_button">Order</string>
     <string name="toppings1">Whipped Cream</string>
     <string name="toppings">Toppings</string>
+    <string name="toppings2">Chocolate</string>
+    <string name="name">Name</string>
 </resources>

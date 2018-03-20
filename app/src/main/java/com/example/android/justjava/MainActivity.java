@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -27,31 +28,29 @@ public class MainActivity extends AppCompatActivity {
         CheckBox whippedCreamCheckBox = findViewById(R.id.whipped_cream_checkbox);
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         Log.v("MainActivity","Hass Whipped Cream: "+hasWhippedCream);
-       int price=calculatePrice(hasWhippedCream);
-       displayMessage(createOrderSummary(price,hasWhippedCream));
+        CheckBox chocolateCheckBox = findViewById(R.id.chocolate_cream_checkbox);
+        boolean hasChocolate = chocolateCheckBox.isChecked();
+        EditText text = findViewById(R.id.input_name);
+        String name = text.getText().toString();
+       int price=calculatePrice();
+       displayMessage(createOrderSummary(price,hasWhippedCream,hasChocolate,name));
     }
 
     /**
      * Creates the summary of the order
+     * @param hasWhippedCream is whether or not the user wants whipped cream topping
+     * @param hasChocolate is whether or not the user wants chocolate topping
      * @param price of the order
      * @return text message
      */
-    private String createOrderSummary(int price,boolean hasWhippedCream){
-        if (price==0)
-            return "Nothing Order";
-        else
-            return "Name: Rahul krishna\n"+"Has Whipped Cream? "+hasWhippedCream+"\nQuantity: "+numberOfCoffees+"\nTotal: $"+price+"\nThank You!";
+    private String createOrderSummary(int price,boolean hasWhippedCream,boolean hasChocolate,String name){
+        return "Name: "+name+"\nHas Whipped Cream? "+hasWhippedCream+"\nHas Chocolate? "+hasChocolate+"\nQuantity: "+numberOfCoffees+"\nTotal: $"+price+"\nThank You!";
     }
     /**
      * Calculates the price of the order.
      */
-    private int calculatePrice(boolean hasWhippedCream) {
-        int price;
-        if(hasWhippedCream)
-            price= numberOfCoffees*7;
-        else
-            price= numberOfCoffees*5;
-        return price;
+    private int calculatePrice(){
+        return numberOfCoffees*5;
     }
 
     public void increment(View view) {
