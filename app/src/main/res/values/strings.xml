@@ -7,4 +7,6 @@
     <string name="order_summary">Order Summary</string>
     <string name="total_price">Place Your Order to Know Price</string>
     <string name="order_button">Order</string>
+    <string name="toppings1">Whipped Cream</string>
+    <string name="toppings">Toppings</string>
 </resources>
