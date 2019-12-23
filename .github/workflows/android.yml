@@ -17,10 +17,7 @@ jobs:
     - name: Install Android sdkmanager
       run: |
         wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
-        sudo unzip -d $ANDROID_HOME android-sdk.zip > /dev/null
-    - name: Install required Android tools
-      run: |
-        echo "y" | sudo $ANDROID_HOME/tools/bin/sdkmanager "ndk;${ANDROID_NDK}" > /dev/null
+        sudo unzip -d $ANDROID_HOME android-sdk.zip > /dev/nul
     - name: Build with Gradle
       run: |
         export PATH="$ANDROID_HOME/cmake/${ANDROID_CMAKE}/bin:$PATH"
